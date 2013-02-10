@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130206 05:48:11.668" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/dbrobot/HelloDB.txt" id="s1" name="HelloDB">
+<test id="s1-t1" timeout="" name="Hello">
+<kw type="kw" name="DatabaseLibrary.Connect To Database" timeout="">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to </doc>
+<arguments>
+<arg>MySQLdb</arg>
+<arg>test</arg>
+<arg>root</arg>
+<arg>admin123</arg>
+<arg>localhost</arg>
+<arg>3306</arg>
+</arguments>
+<status status="PASS" endtime="20130206 05:48:12.037" starttime="20130206 05:48:11.789"></status>
+</kw>
+<kw type="kw" name="${result} = DatabaseLibrary.Query" timeout="">
+<doc>Uses the input `selectStatement` to query for the values that </doc>
+<arguments>
+<arg>Select name from employee</arg>
+</arguments>
+<msg timestamp="20130206 05:48:12.060" level="INFO">${result} = (('riju',),)</msg>
+<status status="PASS" endtime="20130206 05:48:12.059" starttime="20130206 05:48:12.038"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log" timeout="">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<msg timestamp="20130206 05:48:12.061" level="INFO">(('riju',),)</msg>
+<status status="PASS" endtime="20130206 05:48:12.061" starttime="20130206 05:48:12.060"></status>
+</kw>
+<kw type="kw" name="DatabaseLibrary.Disconnect From Database" timeout="">
+<doc>Disconnects from the database.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130206 05:48:12.062" starttime="20130206 05:48:12.062"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130206 05:48:12.063" critical="yes" starttime="20130206 05:48:11.788"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20130206 05:48:12.064" starttime="20130206 05:48:11.668"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="HelloDB">HelloDB</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

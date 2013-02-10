@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130205 05:50:34.025" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/sshsample/executing_commands.txt" id="s1" name="Executing Commands">
+<kw type="setup" name="example_resource.Open connection and log in" timeout="">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="SSHLibrary.Open Connection" timeout="">
+<doc>Opens a new SSH connection to given `host` and `port`.</doc>
+<arguments>
+<arg>${HOST}</arg>
+<arg>prompt=${PROMPT}</arg>
+</arguments>
+<status status="PASS" endtime="20130205 05:50:34.764" starttime="20130205 05:50:34.764"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Login" timeout="">
+<doc>Logs in to SSH server with given user information.</doc>
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:49.998" level="INFO">Logging into 'localhost:22' as 'rvk'.</msg>
+<status status="PASS" endtime="20130205 05:50:49.998" starttime="20130205 05:50:34.765"></status>
+</kw>
+<status status="PASS" endtime="20130205 05:50:50.029" starttime="20130205 05:50:34.763"></status>
+</kw>
+<test id="s1-t1" timeout="" name="Execute single commmand">
+<kw type="kw" name="${result} = SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>${LS}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.060" level="INFO">Executing command 'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.060" level="INFO">${result} = .
+..
+.adobe
+.azureus
+Azureus Downloads
+.bash_history
+.bash_logout
+.bashrc
+.cache
+.compiz
+.config
+.dbus
+Desktop
+.dmrc
+Documents
+Downloads
+.dropbox
+Dropbox
+.dropbox-dist
+examples.desktop
+.gconf
+.gimp-2....</msg>
+<status status="PASS" endtime="20130205 05:50:50.060" starttime="20130205 05:50:50.031"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130205 05:50:50.061" critical="yes" starttime="20130205 05:50:50.029"></status>
+</test>
+<test id="s1-t2" timeout="" name="Executing multiple commands">
+<kw type="kw" name="${result1} = SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>${LS}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.107" level="INFO">Executing command 'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.107" level="INFO">${result1} = .
+..
+.adobe
+.azureus
+Azureus Downloads
+.bash_history
+.bash_logout
+.bashrc
+.cache
+.compiz
+.config
+.dbus
+Desktop
+.dmrc
+Documents
+Downloads
+.dropbox
+Dropbox
+.dropbox-dist
+examples.desktop
+.gconf
+.gimp-2....</msg>
+<status status="PASS" endtime="20130205 05:50:50.107" starttime="20130205 05:50:50.062"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>cd /</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.179" level="INFO">Executing command 'cd /'</msg>
+<status status="PASS" endtime="20130205 05:50:50.179" starttime="20130205 05:50:50.108"></status>
+</kw>
+<kw type="kw" name="${result2} = SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>${LS}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.253" level="INFO">Executing command 'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.254" level="INFO">${result2} = .
+..
+.adobe
+.azureus
+Azureus Downloads
+.bash_history
+.bash_logout
+.bashrc
+.cache
+.compiz
+.config
+.dbus
+Desktop
+.dmrc
+Documents
+Downloads
+.dropbox
+Dropbox
+.dropbox-dist
+examples.desktop
+.gconf
+.gimp-2....</msg>
+<status status="PASS" endtime="20130205 05:50:50.253" starttime="20130205 05:50:50.180"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Be Equal" timeout="">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result1}</arg>
+<arg>${result2}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.254" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20130205 05:50:50.255" starttime="20130205 05:50:50.254"></status>
+</kw>
+<doc>Since each Execute command is executed in separate
+session, using `cd` between `ls` calls has no effect on results.</doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130205 05:50:50.255" critical="yes" starttime="20130205 05:50:50.061"></status>
+</test>
+<test id="s1-t3" timeout="" name="All return values of execute command">
+<kw type="kw" name="${stdout}, ${stderr}, ${rc} = SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>${LS}</arg>
+<arg>include</arg>
+<arg>return_stderr=yes</arg>
+<arg>return_rc=sure</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.303" level="INFO">Executing command 'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.303" level="INFO">${stdout} = .
+..
+.adobe
+.azureus
+Azureus Downloads
+.bash_history
+.bash_logout
+.bashrc
+.cache
+.compiz
+.config
+.dbus
+Desktop
+.dmrc
+Documents
+Downloads
+.dropbox
+Dropbox
+.dropbox-dist
+examples.desktop
+.gconf
+.gimp-2....</msg>
+<msg timestamp="20130205 05:50:50.303" level="INFO">${stderr} = </msg>
+<msg timestamp="20130205 05:50:50.303" level="INFO">${rc} = 0</msg>
+<status status="PASS" endtime="20130205 05:50:50.303" starttime="20130205 05:50:50.257"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Be Equal" timeout="">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${stderr}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.304" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20130205 05:50:50.305" starttime="20130205 05:50:50.304"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Be Equal As Integers" timeout="">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rc}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.305" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20130205 05:50:50.305" starttime="20130205 05:50:50.305"></status>
+</kw>
+<doc>To return stderr or rc with execute command, use corresponding
+named argument, where the argument value may be any non empty string.</doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130205 05:50:50.306" critical="yes" starttime="20130205 05:50:50.255"></status>
+</test>
+<test id="s1-t4" timeout="" name="Command in session">
+<kw type="kw" name="SSHLibrary.Write" timeout="">
+<doc>Writes given text over the connection and appends newline.</doc>
+<arguments>
+<arg>${LS}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.342" level="INFO">Writing u'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.342" level="INFO">ls -a --color=never</msg>
+<status status="PASS" endtime="20130205 05:50:50.342" starttime="20130205 05:50:50.307"></status>
+</kw>
+<kw type="kw" name="${result1} = SSHLibrary.Read Until Prompt" timeout="">
+<doc>Reads and returns text from the output until prompt is found.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20130205 05:50:50.368" level="INFO">.                  .gnome2                .psensor
+..                 .gnome2_private        Public
+.adobe             .goutputstream-OGQMRW  .pulse
+.azureus           .goutputstream-PIWQRW  .pulse-cookie
+Azureus Downloads  .gphoto                robo.ogv
+.bash_history      .gstreamer-0.10        robots
+.bash_logout       .gtk-bookmarks         .Skype
+.bashrc            .guvcviewrc            .speech-dispatcher
+.cache             HelloWorld             Spoon-Knife
+.compiz            hsqlprefs.dat          .ssh
+.config            .ICEauthority          .swt
+.dbus              .java                  Templates
+Desktop            .kde                   .thumbnails
+.dmrc              .local                 Videos
+Documents          .macromedia            .VirtualBox
+Downloads          .mission-control       VirtualBox VMs
+.dropbox           .mozilla               .windows-serial
+Dropbox            Music                  .wine
+.dropbox-dist      .mysql_history         Workspace
+examples.desktop   .openshot              .Xauthority
+.gconf             Pictures               .xsession-errors
+.gimp-2.8          .pip                   .xsession-errors.old
+.gitconfig         .pki
+.gksu.lock         .profile
+rvk@rvkubuntu:~$</msg>
+<msg timestamp="20130205 05:50:50.368" level="INFO">${result1} = .                  .gnome2                .psensor
+..                 .gnome2_private        Public
+.adobe             .goutputstream-OGQMRW  .pulse
+.azureus           .goutputstream-PIWQRW  .pulse...</msg>
+<status status="PASS" endtime="20130205 05:50:50.368" starttime="20130205 05:50:50.343"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Write" timeout="">
+<doc>Writes given text over the connection and appends newline.</doc>
+<arguments>
+<arg>cd /</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.371" level="INFO">Writing u'cd /'</msg>
+<msg timestamp="20130205 05:50:50.371" level="INFO">cd /</msg>
+<status status="PASS" endtime="20130205 05:50:50.371" starttime="20130205 05:50:50.369"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Read Until Prompt" timeout="">
+<doc>Reads and returns text from the output until prompt is found.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20130205 05:50:50.372" level="INFO">rvk@rvkubuntu:/$</msg>
+<status status="PASS" endtime="20130205 05:50:50.372" starttime="20130205 05:50:50.371"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Write" timeout="">
+<doc>Writes given text over the connection and appends newline.</doc>
+<arguments>
+<arg>${LS}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.378" level="INFO">Writing u'ls -a --color=never'</msg>
+<msg timestamp="20130205 05:50:50.378" level="INFO">ls -a --color=never</msg>
+<status status="PASS" endtime="20130205 05:50:50.378" starttime="20130205 05:50:50.372"></status>
+</kw>
+<kw type="kw" name="${result2} = SSHLibrary.Read Until Prompt" timeout="">
+<doc>Reads and returns text from the output until prompt is found.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20130205 05:50:50.383" level="INFO">.    boot   etc         initrd.img.old  media  proc  sbin     sys  var
+..   cdrom  home        lib             mnt    root  selinux  tmp  vmlinuz
+bin  dev    initrd.img  lost+found      opt    run   srv      usr  vmlinuz.old
+rvk@rvkubuntu:/$</msg>
+<msg timestamp="20130205 05:50:50.383" level="INFO">${result2} = .    boot   etc         initrd.img.old  media  proc  sbin     sys  var
+..   cdrom  home        lib             mnt    root  selinux  tmp  vmlinuz
+bin  dev    initrd.img  lost+found      opt    run  ...</msg>
+<status status="PASS" endtime="20130205 05:50:50.383" starttime="20130205 05:50:50.379"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Be Equal" timeout="">
+<doc>Fails if the given objects are equal.</doc>
+<arguments>
+<arg>${result1}</arg>
+<arg>${result2}</arg>
+</arguments>
+<msg timestamp="20130205 05:50:50.385" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20130205 05:50:50.385" starttime="20130205 05:50:50.384"></status>
+</kw>
+<doc>Write and Read keywords operate on same session, so
+state between keyword calls is preserved.</doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130205 05:50:50.385" critical="yes" starttime="20130205 05:50:50.306"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20130205 05:50:50.386" starttime="20130205 05:50:34.025"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="4" id="s1" name="Executing Commands">Executing Commands</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130206 06:16:43.184" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/xmlrobot/xmlTest.txt" id="s1" name="xmlTest">
+<test id="s1-t1" timeout="" name="Hello">
+<kw type="kw" name="${root} = XML.Parse Xml" timeout="">
+<doc>Parses the given XML file or string into an element structure.</doc>
+<arguments>
+<arg>./test.xml</arg>
+<arg>no namespace cleanup</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.233" level="INFO">${root} = &lt;Element 'example' at 0xa3d2ad0&gt;</msg>
+<status status="PASS" endtime="20130206 06:16:43.233" starttime="20130206 06:16:43.233"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Be Equal" timeout="">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${root.tag}</arg>
+<arg>example</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.235" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20130206 06:16:43.235" starttime="20130206 06:16:43.234"></status>
+</kw>
+<kw type="kw" name="${first} = XML.Get Element" timeout="">
+<doc>Returns an element in the `source` matching the `xpath`.</doc>
+<arguments>
+<arg>${root}</arg>
+<arg>first</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.236" level="INFO">${first} = &lt;Element 'first' at 0xa3d2b30&gt;</msg>
+<status status="PASS" endtime="20130206 06:16:43.236" starttime="20130206 06:16:43.235"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Be Equal" timeout="">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${first.text}</arg>
+<arg>text</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.237" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20130206 06:16:43.237" starttime="20130206 06:16:43.236"></status>
+</kw>
+<kw type="kw" name="@{children} = XML.Get Elements" timeout="">
+<doc>Returns a list of elements in the `source` matching the `xpath`.</doc>
+<arguments>
+<arg>${root}</arg>
+<arg>*/child</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.238" level="INFO">@{children} = [ &lt;Element 'child' at 0xa3d2ba8&gt; | &lt;Element 'child' at 0xa3d2c20&gt; | &lt;Element 'child' at 0xa3d2c50&gt; ]</msg>
+<status status="PASS" endtime="20130206 06:16:43.237" starttime="20130206 06:16:43.237"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Length Should Be" timeout="">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${children}</arg>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20130206 06:16:43.238" level="INFO">Length is 3</msg>
+<status status="PASS" endtime="20130206 06:16:43.238" starttime="20130206 06:16:43.238"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130206 06:16:43.239" critical="yes" starttime="20130206 06:16:43.232"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20130206 06:16:43.239" starttime="20130206 06:16:43.184"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="xmlTest">xmlTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

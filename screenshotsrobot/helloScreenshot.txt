@@ -1,0 +1,11 @@
+**Settings**
+Library	Screenshot	.
+
+
+**Test Cases**
+Hello
+	Take Screenshot	width=500px
+
+
+**Keywords**
+

@@ -1,0 +1,13 @@
+**Settings**
+Library	XML
+
+**Test Cases**
+Hello
+	${root} =	Parse XML	./test.xml	no namespace cleanup
+	Should Be Equal	${root.tag}	example
+	${first} =	Get Element	${root}	first
+	Should Be Equal	${first.text}	text
+	
+
+**Keywords**
+

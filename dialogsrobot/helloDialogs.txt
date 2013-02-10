@@ -1,0 +1,15 @@
+**Settings**
+Library	Dialogs
+
+
+**Test Cases**
+Hello
+	Execute Manual Step	select 'PASS' or 'FAIL'	TestFailed!
+	Get Selection From User	Please select		a,b,c
+	Get Value From User	Please enter value	cancelled
+	Pause Execution		Test execution paused. Press OK to continue.
+	
+
+
+**Keywords**
+

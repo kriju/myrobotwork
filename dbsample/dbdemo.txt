@@ -1,0 +1,10 @@
+**Settings**
+Library		DatabaseLibrary
+Test Setup	Connect to Database	jdbc:hsqldb:mem	SA	admin
+Test Teardown	Disconnect from database
+
+**Test Case**
+Test1		
+	Execute query		select * from employee
+
+

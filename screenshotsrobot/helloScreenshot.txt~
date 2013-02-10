@@ -1,0 +1,13 @@
+**Settings**
+Library	Screenshot	.
+Library	Dialogs
+
+
+**Test Cases**
+Hello
+	Execute Manual Step	select 'PASS' or 'FAIL'	TestFailed!
+	Take Screenshot	width=500px
+
+
+**Keywords**
+

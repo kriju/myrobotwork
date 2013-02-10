@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130206 05:47:46.600" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/sshrobot/sshsample.txt" id="s1" name="Sshsample">
+<test id="s1-t1" timeout="" name="Hello">
+<kw type="kw" name="SSHLibrary.Open Connection" timeout="">
+<doc>Opens a new SSH connection to given `host` and `port`.</doc>
+<arguments>
+<arg>rvkubuntu</arg>
+</arguments>
+<status status="PASS" endtime="20130206 05:47:47.228" starttime="20130206 05:47:47.227"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Login" timeout="">
+<doc>Logs in to SSH server with given user information.</doc>
+<arguments>
+<arg>rvk</arg>
+<arg>12345678</arg>
+</arguments>
+<msg timestamp="20130206 05:47:48.332" level="INFO">Logging into 'rvkubuntu:22' as 'rvk'.</msg>
+<status status="PASS" endtime="20130206 05:47:48.333" starttime="20130206 05:47:47.228"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>ls -l</arg>
+</arguments>
+<msg timestamp="20130206 05:47:48.367" level="INFO">Executing command 'ls -l'</msg>
+<status status="PASS" endtime="20130206 05:47:48.367" starttime="20130206 05:47:48.333"></status>
+</kw>
+<kw type="kw" name="${txt} = SSHLibrary.Read" timeout="">
+<doc>Reads and returns/logs everything currently available on the output.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20130206 05:47:48.368" level="INFO">rvkubuntu:~$</msg>
+<msg timestamp="20130206 05:47:48.369" level="INFO">${txt} = rvkubuntu:~$ </msg>
+<status status="PASS" endtime="20130206 05:47:48.368" starttime="20130206 05:47:48.368"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log" timeout="">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${txt}</arg>
+</arguments>
+<msg timestamp="20130206 05:47:48.369" level="INFO">rvkubuntu:~$ </msg>
+<status status="PASS" endtime="20130206 05:47:48.369" starttime="20130206 05:47:48.369"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130206 05:47:48.370" critical="yes" starttime="20130206 05:47:47.226"></status>
+</test>
+<test id="s1-t2" timeout="" name="Hello2">
+<kw type="kw" name="SSHLibrary.Execute Command" timeout="">
+<doc>Executes command and returns combination of stdout, stderr and return code.</doc>
+<arguments>
+<arg>pwd</arg>
+</arguments>
+<msg timestamp="20130206 05:47:48.411" level="INFO">Executing command 'pwd'</msg>
+<status status="PASS" endtime="20130206 05:47:48.412" starttime="20130206 05:47:48.372"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Read" timeout="">
+<doc>Reads and returns/logs everything currently available on the output.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130206 05:47:48.412" starttime="20130206 05:47:48.412"></status>
+</kw>
+<kw type="kw" name="SSHLibrary.Close Connection" timeout="">
+<doc>Closes the currently active connection.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20130206 05:47:48.512" starttime="20130206 05:47:48.413"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130206 05:47:48.513" critical="yes" starttime="20130206 05:47:48.371"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20130206 05:47:48.514" starttime="20130206 05:47:46.601"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="2" id="s1" name="Sshsample">Sshsample</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

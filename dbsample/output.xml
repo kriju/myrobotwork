@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130130 06:34:27.271" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/dbsample/dbdemo.txt" id="s1" name="Dbdemo">
+<test id="s1-t1" timeout="" name="Test1">
+<kw type="setup" name="DatabaseLibrary.Connect To Database" timeout="">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to </doc>
+<arguments>
+<arg>jdbc:hsqldb:mem</arg>
+<arg>SA</arg>
+<arg>admin</arg>
+</arguments>
+<msg timestamp="20130130 06:34:27.318" level="FAIL">NoSectionError: No section: 'default'</msg>
+<status status="FAIL" endtime="20130130 06:34:27.318" starttime="20130130 06:34:27.317"></status>
+</kw>
+<kw type="teardown" name="DatabaseLibrary.Disconnect From Database" timeout="">
+<doc>Disconnects from the database.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20130130 06:34:27.319" level="FAIL">AttributeError: 'NoneType' object has no attribute 'close'</msg>
+<status status="FAIL" endtime="20130130 06:34:27.319" starttime="20130130 06:34:27.319">AttributeError: 'NoneType' object has no attribute 'close'</status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20130130 06:34:27.319" critical="yes" starttime="20130130 06:34:27.316">Setup failed:
+NoSectionError: No section: 'default'
+
+Also teardown failed:
+AttributeError: 'NoneType' object has no attribute 'close'</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20130130 06:34:27.320" starttime="20130130 06:34:27.271"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Dbdemo">Dbdemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

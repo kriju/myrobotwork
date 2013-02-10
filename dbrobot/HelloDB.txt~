@@ -1,0 +1,15 @@
+**Settings**
+Library	DatabaseLibrary
+
+
+**Test Cases**
+Hello
+	Connect To Database	MySQLdb	test	root	admin123	localhost	3306
+	${result}	Query			Select * from employee
+	Log		${result}
+	Disconnect from Database
+	
+
+**Keywords**
+
+	

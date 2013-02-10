@@ -1,0 +1,21 @@
+**Settings**
+Library	SSHLibrary	timeout=10	prompt=@
+
+
+**Test Cases**
+Hello
+	Open Connection	rvkubuntu
+	Login	rvk	12345678		
+	Execute Command	ls -l
+	${txt}	Read
+	log	${txt}
+
+Hello2
+	Execute Command	pwd
+	Read
+	Close Connection
+	
+
+**Keywords**
+
+	

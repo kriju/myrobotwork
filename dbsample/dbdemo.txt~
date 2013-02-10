@@ -1,0 +1,10 @@
+**Settings**
+Library		DatabaseLibrary
+Test Setup	Connect to Database	jdbc:hsqldb:hsql://localhost:9001/test
+Test Teardown	Disconnect from database
+
+**Test Case**
+Test1		
+	Execute query		select * from employee
+
+

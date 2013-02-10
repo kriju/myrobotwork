@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20130206 07:03:56.936" generator="Robot 2.7.6 (Python 2.7.3 on linux2)">
+<suite source="/home/rvk/robots/dialogsrobot/helloDialogs.txt" id="s1" name="helloDialogs">
+<test id="s1-t1" timeout="" name="Hello">
+<kw type="kw" name="Dialogs.Execute Manual Step" timeout="">
+<doc>Pauses test execution until user sets the keyword status.</doc>
+<arguments>
+<arg>select 'PASS' or 'FAIL'</arg>
+<arg>TestFailed!</arg>
+</arguments>
+<status status="PASS" endtime="20130206 07:04:02.127" starttime="20130206 07:03:57.034"></status>
+</kw>
+<kw type="kw" name="Dialogs.Get Selection From User" timeout="">
+<doc>Pauses test execution and asks user to select a value.</doc>
+<arguments>
+<arg>Please select</arg>
+<arg>a,b,c</arg>
+</arguments>
+<status status="PASS" endtime="20130206 07:04:08.605" starttime="20130206 07:04:02.127"></status>
+</kw>
+<kw type="kw" name="Dialogs.Get Value From User" timeout="">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Please enter value</arg>
+<arg>cancelled</arg>
+</arguments>
+<status status="PASS" endtime="20130206 07:04:17.887" starttime="20130206 07:04:08.606"></status>
+</kw>
+<kw type="kw" name="Dialogs.Pause Execution" timeout="">
+<doc>Pauses test execution until user clicks `Ok` button.</doc>
+<arguments>
+<arg>Test execution paused. Press OK to continue.</arg>
+</arguments>
+<status status="PASS" endtime="20130206 07:04:20.687" starttime="20130206 07:04:17.889"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20130206 07:04:20.688" critical="yes" starttime="20130206 07:03:57.033"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20130206 07:04:20.689" starttime="20130206 07:03:56.936"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="helloDialogs">helloDialogs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
